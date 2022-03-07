@@ -1,6 +1,6 @@
 <!-- * LIVE FEED PAGE  -->
-<%- include('./partials/html-head') %>
-<%- include('./partials/nav') %>
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,12 +14,12 @@
   <h1>List of all Posts</h1> 
   <h1>Live Feed</h1>
   <% posts.forEach(post => { %>
-    <%= post.text %> 
-    <%= post.time %> 
+    <div> <%= post.text %></div>
+    <div> <%= post.time %></div>
   <% }) %>
 
 </body>
 </html> 
 
-<%- include('./partials/footer') %>
+<%- include('../partials/footer') %> 
 

@@ -7,7 +7,6 @@ import session from 'express-session'
 import logger from 'morgan'
 import methodOverride from 'method-override'
 import passport from 'passport'
-import { router as postsRouter } from './routes/posts.js'
 import { passUserToView } from "./middleware/middleware.js"
 
 // connect to MongoDB with mongoose
@@ -19,7 +18,7 @@ import('./config/passport.js')
 // require routes
 import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js'
-
+import { router as postsRouter } from './routes/posts.js'
 
 // create the express app
 const app = express()

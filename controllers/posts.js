@@ -1,11 +1,12 @@
 import { Post } from "../models/post.js"
 import { Comment } from "../models/comment.js"
 
-///posts (all posts)
+
 function index(req, res){
   console.log("index fun :)");
   Post.find({})
   .then(posts => {
+    console.log('sanity check!');
     res.render('posts/index',{
       posts
     })
@@ -14,20 +15,31 @@ function index(req, res){
     console.log(err, 'ctrlrs/idx/fun ERROR');
     res.redirect('/posts')
   })
-}
+} 
 
 function newPost (req, res) {
   res.render('posts/new')
 }
 
-//specific post 
-// function show (req, res){
-//   console.log("show me the function xD");
-// }
+// specific post 
+function show (req, res){
+  console.log("show me the post xD");
+  Post.findById(req.params.id)
+  .populate('author')
+  .then(post => {
+    console.log(post);
+    res.render('post/show', {
+      post
+    })
+  })
+  .catch(err=>{
+    console.log(err);
+    res.redirect('/posts')
+  })
+}
 
 // new post (redirect to /posts)
 function create(req, res){
-  console.log("create new fun");
   req.body.author = req.user?.profile._id
   Post.create(req.body)
   .then(post=>{
@@ -39,20 +51,6 @@ function create(req, res){
   })
 }
 
-//flights create
-// function create(req, res) {
-//   console.log("req.body is", req.body);
-//   for (let key in req.body){
-//     if (req.body[key] === '') delete req.body[key]
-//   }
-//   const flight = new Flight (req.body)
-//   console.log("flight is", flight);
-//   flight.save(function(err){
-//     if (err) return res.redirect('/flights/new') 
-//     res.redirect('/flights')
-//   }) 
-//   }
-
 function deletePost (req, res){
   console.log("delete fun :(");
 }
@@ -63,7 +61,7 @@ function update (req, res){
 
 export {
   index,
-  // show,
+  show,
   create,
   deletePost as delete,
   update,
