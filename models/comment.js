@@ -1,14 +1,17 @@
 import mongoose from 'mongoose'
 
-const commentSchema = new mongoose.Schema({
+const Schema = mongoose.Schema
+
+const commentSchema = new Schema({
   avatar: String,
   text: String,
   time: String,
-  author: { ObjectId, ref: "profile"}
+  author: {type: Schema.Types.ObjectId, ref: "Profile"},
+  post: {type: Schema.Types.ObjectId, ref: "Post"}
 })
 
 const Comment = mongoose.model('Comment', commentSchema)
 
 export {
   Comment
-}
+} 

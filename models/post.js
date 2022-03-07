@@ -1,12 +1,16 @@
 import mongoose from 'mongoose'
+import { Comment } from './comment.js'
 
-const postSchema = new mongoose.Schema({
+const Schema = mongoose.Schema
+
+const postSchema = new Schema({
   avatar: String,
   username: String,
-  author: { ObjectId, ref: "Profile" },
+  author: {type: Schema.Types.ObjectId, ref: "Profile"},
   time: String,
   text: String,
-  comment: {commentSchema},
+  // comment: { Comment },
+  // todo: add something that a user can select...
 })
 
 const Post = mongoose.model('Post', postSchema)
@@ -14,6 +18,3 @@ const Post = mongoose.model('Post', postSchema)
 export {
   Post
 }
-
-
-

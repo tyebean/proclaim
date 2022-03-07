@@ -11,7 +11,7 @@ function index(req, res){
     })
   })
   .catch(err =>{
-    console.log(err, 'ctrlrs/idx/fun err');
+    console.log(err, 'ctrlrs/idx/fun ERROR');
     res.redirect('/posts')
   })
 }
@@ -24,8 +24,15 @@ function show (req, res){
 // new post (redirect to /posts)
 function create(req, res){
   console.log("create new fun");
-  
-
+  req.body.owner = req.user.profile._id
+  Post.create(req.body)
+  .then(post=>{
+    res.redirect('/posts')
+  })
+  .catch(err=>{
+    console.log(err, 'create ERROR');
+    res.redirect('/posts')
+  })
 }
 
 function deletePost (req, res){
