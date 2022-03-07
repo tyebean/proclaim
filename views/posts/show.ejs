@@ -5,4 +5,15 @@
 
 <h1>Indiv Post</h1>
 
+<div class="post">
+  <img class="post-avatar"
+    src="<%= user.profile.avatar %>"
+    alt="<%= user.profile.name %> avatar"
+  /> 
+  <div class="username"><%= user.profile.name %></div>
+  <div class="time"><%= post.time %></div>
+  <div class="text-post"><%= post.text %></div>
+</div>
+</a>
+
 <%- include('../partials/footer') %>

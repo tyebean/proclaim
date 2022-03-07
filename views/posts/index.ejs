@@ -11,10 +11,10 @@
   <link rel="stylesheet" href="/public/stylesheets/style.css">
   <title>Proclaim: Live Feed</title>
 </head>
-<body>
+<body> 
   <h1>Live Feed</h1>
   <% posts.forEach(post => { %>
-    <a href="/posts/ <%= post._id %> ">
+    <a href="/posts/<%= post._id %> ">
     <div class="post">
       <img class="post-avatar"
         src="<%= user.profile.avatar %>"
@@ -31,4 +31,3 @@
 </html> 
 
 <%- include('../partials/footer') %> 
-

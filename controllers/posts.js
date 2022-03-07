@@ -4,14 +4,14 @@ import { Comment } from "../models/comment.js"
 function index(req, res){
   console.log("index fun :)");
   Post.find({})
-  .then(posts => {
+  .then (posts => {
     console.log('sanity check!');
     res.render('posts/index',{
       posts
     })
   })
   .catch(err =>{
-    console.log(err, 'index error');
+    console.log('❌ INDEX ERROR', err);
     res.redirect('/posts')
   })
 } 
@@ -22,18 +22,17 @@ function newPost (req, res) {
 
 // specific post 
 function show (req, res){
-  console.log("show me the post xD");
+  console.log("show me the post");
   Post.findById(req.params.id)
-  // todo ask about this .populate('author')
-  .then(post => {
+  // .populate('Profile')
+  .then ( post => {
     console.log(post);
-    res.render('post/show', {
-      post,
-      err
+    res.render('posts/show', {
+      post
     })
   })
-  .catch(err=>{
-    console.log('error with show', err);
+  .catch( err => {
+    console.log('❌  SHOW ERROR', err);
     res.redirect('/posts')
   })
 }

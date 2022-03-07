@@ -9,8 +9,6 @@ const postSchema = new Schema({
   author: {type: Schema.Types.ObjectId, ref: "Profile"},
   time: {type: Date, default: Date.now()},
   text: String,
-  // comment: { Comment },
-  // todo: add something that a user can select...
 })
 
 const Post = mongoose.model('Post', postSchema)
