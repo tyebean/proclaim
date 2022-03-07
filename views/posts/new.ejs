@@ -9,15 +9,13 @@
   <title>Proclaim: New Post</title>
 </head>
 <body>
-  <%= Post.avatar %>
-  <%= Post.username %> 
-  <%= Post.time %>
+  <h1>NEW POST</h1>
   <form action="/posts" method="post">
     <label>
       Post Content
-      <input type="text">
+      <input type="text" name="text" id="text">
+      <button type="submit">Proclaim!</button>
     </label>
   </form>
 </body>
-</html>
-
+</html> 

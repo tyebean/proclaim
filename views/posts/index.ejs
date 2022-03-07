@@ -11,9 +11,15 @@
   <title>Proclaim: Live Feed</title>
 </head>
 <body>
-  <h1>Live Feed</h1> 
-  <a href="/posts/new">Proclaim</a>
+  <h1>List of all Posts</h1> 
+  <h1>Live Feed</h1>
+  <% posts.forEach(post => { %>
+    <%= post.text %> 
+    <%= post.time %> 
+  <% }) %>
+
 </body>
 </html> 
 
 <%- include('./partials/footer') %>
+

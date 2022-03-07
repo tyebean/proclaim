@@ -10,7 +10,6 @@ import passport from 'passport'
 import { router as postsRouter } from './routes/posts.js'
 import { passUserToView } from "./middleware/middleware.js"
 
-
 // connect to MongoDB with mongoose
 import('./config/database.js')
 

@@ -8,9 +8,11 @@ router.get('/', function (req, res) {
 })
 
 // GET - ALL posts: localhost:3000/posts (index)
-router.get('/', postsCtrl.index)
+router.get('/posts', postsCtrl.index) 
 // GET - specific post: localhost:3000/posts/:id (show)
-router.get('/:id', postsCtrl.show)
+// router.get('/:id', postsCtrl.show)
+// GET - new post: localhost:3000/posts/new (new)
+router.get("/new", postsCtrl.new)
 // CREATE - create new post: localhost:3000/posts (index (redirect))
 router.post('/', postsCtrl.create )
 // DELETE - delete post: localhost:3000/:id
@@ -20,4 +22,4 @@ router.put('/:id', postsCtrl.update)
 
 export {
   router
-}
+} 
