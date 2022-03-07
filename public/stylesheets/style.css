@@ -35,6 +35,7 @@ main {
 h1 {
   font-size: 3.6rem;
   font-family: 'Times New Roman', Times, serif ;
+  text-align: center;
 }
 
 div.post {
@@ -44,5 +45,60 @@ div.post {
   border-bottom: 4px solid black;
   padding: 10px;
   height: 100px;
-  margin: auto;
+  margin: 20px;
+}
+
+/* todo: align username with the pfp!!!!!!!! */
+.username {
+  color: red;
+  display: inline-block;
+  padding: 2px;
+  font-size: 50%;
+  margin: 0;
 } 
+
+img.post-avatar {
+  margin: 0;
+  padding: 0;
+  height: 50%;
+}
+
+button.add-post {
+  font-size: 15px;
+  display: block;
+  margin: auto;
+  background-color: #34b67e;
+  border-top: 2px solid #34b67e;
+  border-left: 2px solid #34b67e;
+  border-right: 2px solid #138f59;
+  border-bottom: 2px solid #138f59;
+}
+
+button.add-post:hover {
+  display: block;
+  margin: auto;
+  background-color: #178555;
+  border-top: 2px solid #178555;
+  border-left: 2px solid #178555;
+  border-right: 2px solid #225e35;
+  border-bottom: 2px solid #225e35;
+}
+
+.text-post{
+  color: red;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 30%;
+  border-radius: 2px;
+  border: 1px solid grey;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
+  text-decoration: none;
+}
+
+.time {
+  display: inline-block;
+  padding-right: 5px;
+  color: grey;
+}
+

@@ -3,22 +3,25 @@ import * as postsCtrl from "../controllers/posts.js"
 import { isLoggedIn } from '../middleware/middleware.js'
 const router = Router()
 
-// router.get('/', function (req, res) {
-//   res.render('index', { title: 'Home Page', user: req.user ? req.user : null })
-// })
-
-// GET - ALL posts: localhost:3000/posts (index)
+// GET - localhost:3000/posts (index.ejs)
 router.get('/', isLoggedIn, postsCtrl.index) 
-// GET - specific post: localhost:3000/posts/:id (show)
+// GET - localhost:3000/posts/:id (show.ejs)
 router.get('/:id', isLoggedIn, postsCtrl.show)
-// GET - new post: localhost:3000/posts/new (new)
-router.get("/new", postsCtrl.new)
+// GET - localhost:3000/posts/new (new.ejs)
+router.get("/new", isLoggedIn, postsCtrl.new) 
+// GET - edit post: localhost:3000/posts/:id/edit
+router.get('/:id/edit', isLoggedIn, postsCtrl.edit)
+
 // CREATE - create new post: localhost:3000/posts (index (redirect))
-router.post('/', postsCtrl.create ) 
+router.post('/', isLoggedIn, postsCtrl.create ) 
+
 // DELETE - delete post: localhost:3000/:id
-router.delete('/:id', postsCtrl.delete) 
+router.delete('/:id', isLoggedIn, postsCtrl.delete) 
+
+
 //PUT - update post: localhost:3000/:id
-router.put('/:id', postsCtrl.update)
+router.put('/:id', isLoggedIn, postsCtrl.update)
+
 
 export {
   router

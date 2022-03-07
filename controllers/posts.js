@@ -1,7 +1,6 @@
 import { Post } from "../models/post.js"
 import { Comment } from "../models/comment.js"
 
-
 function index(req, res){
   console.log("index fun :)");
   Post.find({})
@@ -12,7 +11,7 @@ function index(req, res){
     })
   })
   .catch(err =>{
-    console.log(err, 'ctrlrs/idx/fun ERROR');
+    console.log(err, 'index error');
     res.redirect('/posts')
   })
 } 
@@ -25,15 +24,16 @@ function newPost (req, res) {
 function show (req, res){
   console.log("show me the post xD");
   Post.findById(req.params.id)
-  .populate('author')
+  // todo ask about this .populate('author')
   .then(post => {
     console.log(post);
     res.render('post/show', {
-      post
+      post,
+      err
     })
   })
   .catch(err=>{
-    console.log(err);
+    console.log('error with show', err);
     res.redirect('/posts')
   })
 }
@@ -51,6 +51,11 @@ function create(req, res){
   })
 }
 
+function edit (req, res){
+  console.log('edit sanity check');
+
+}
+
 function deletePost (req, res){
   console.log("delete fun :(");
 }
@@ -66,5 +71,6 @@ export {
   deletePost as delete,
   update,
   newPost as new,
+  edit
 }
 
