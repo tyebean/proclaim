@@ -12,19 +12,17 @@
   /> 
   <div class="username"><%= user.profile.name %></div>
   <div class="time"><%= post.time %></div>
-  <!-- <div class="text-post"><%= post.text %></div> -->
-  <!-- todo: edit this div of buttons to show if the user isSelf (reference: tacocat profiles/show.ejs) --> 
   <% if (post.author.equals(user?.profile._id)) { %> 
     <div> 
-      <form action="" method="POST">
-        <input class="edit-post" type="text" size="70px" value="<%= post.text %>">
-      </form>
-      <button class="btn-edit" type="submit"> Edit </button>
-      <button class="btn-delete"> Delete </button>
+      <form 
+      action="/posts/<%= post._id %>?_method=PUT" method="POST"> 
+        <input class="edit-post" name="text" type="text" size="70px" value="<%= post.text %>">
+        <button class="btn-edit" type="submit"> Edit </button> 
+      </form> 
+      <button class="btn-delete" type="submit"> Delete </button>
     </div>
     <% } %>
 </div> 
 
-<a href="/posts"><button>Back</button></a>
-
+<a href="/posts"><button class="back"> Back</button></a>
 <%- include('../partials/footer') %> 

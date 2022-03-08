@@ -8,20 +8,23 @@ router.get('/', isLoggedIn, postsCtrl.index)
 // GET - localhost:3000/posts/new (new.ejs)
 router.get("/new", isLoggedIn, postsCtrl.new) 
 // GET - localhost:3000/posts/:id (show.ejs)
-router.get('/:id', isLoggedIn, postsCtrl.show)
-// GET - edit post: localhost:3000/posts/:id/edit
-router.get('/:id/edit', isLoggedIn, postsCtrl.edit)
+router.get('/:id', isLoggedIn, postsCtrl.show) 
 
-// CREATE - create new post: localhost:3000/posts (index (redirect))
-router.post('/', isLoggedIn, postsCtrl.create ) 
+
+// POST - create new post: localhost:3000/posts (index (redirect))
+router.post('/', isLoggedIn, postsCtrl.create) 
+
 
 // DELETE - delete post: localhost:3000/:id
-router.delete('/:id', isLoggedIn, postsCtrl.delete) 
+// router.delete('/:id', isLoggedIn, postsCtrl.delete) 
 
 
-//PUT - update post: localhost:3000/:id
+//PUT/PATCH - update post: localhost:3000/:id
+// * Note: Use PUT to update an entire resource.  Use PATCH to update part of a resource.
 router.put('/:id', isLoggedIn, postsCtrl.update)
 
+// PUT - localhost:3000/posts/:id (edit)
+// router.put('/:id', isLoggedIn, postsCtrl.edit) 
 
 export {
   router

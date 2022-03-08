@@ -3,10 +3,10 @@ import { Profile } from "../models/profile.js"
 import { Comment } from "../models/comment.js"
 
 function index(req, res){
-  console.log("index function ✅");
+  // console.log("index function ✅");
   Post.find({})
   .then (posts => {
-    console.log('rendering posts ✅');
+    // console.log('rendering posts ✅');
     res.render('posts/index',{
       posts
     })
@@ -22,7 +22,7 @@ function newPost (req, res) {
   res.render('posts/new')
 }
 
-// new post (redirect to /posts)
+// new post
 function create(req, res){
   req.body.author = req.user?.profile._id
   Post.create(req.body)
@@ -37,11 +37,11 @@ function create(req, res){
 
 // specific post 
 function show (req, res){
-  console.log("showing me the post ✅");
+  // console.log("showing me the post ✅");
   Post.findById(req.params.id)
-  // .populate('Profile')
+  .populate('author') 
   .then ( post => {
-    console.log(post);
+    // console.log(post);
     res.render('posts/show', {
       post
     })
@@ -64,48 +64,49 @@ function show (req, res){
   // })
 }
 
-function edit (req, res){
-  console.log('✅ edit sanity check');
-  Post.findById(req.params.id)
-  .then(post =>{
-    res.render("posts/edit",{
-      post,
-    })
-  })
-  .catch(err=>{
-    console.log("❌ EDIT ERROR", err);
-    res.redirect("/posts")
-  })
-}
+// function edit (req, res){
+//   console.log('✅ edit sanity check');
+//   Post.findById(req.params.id)
+//   .then ( post => {
+//     res.render("posts/:id", {
+//       post,
+//     })
+//   })
+//   .catch(err=>{
+//     console.log("❌ EDIT ERROR", err);
+//     res.redirect("/posts")
+//   })
+// } 
 
-function deletePost (req, res){
-  console.log("delete fun :(");
-  Post.findById(req.params.id)
-  .then( post => {
-    if (post.author.equals(req.user.profile._id)) {
-      post.delete()
-      .then(() => {
-        res.redirect("/posts")
-      })
-    } else {
-      throw new Error ("NOT AUTHORIZED")
-    }
-  })
-  .catch(err => {
-    console.log("❌ the DELETE error:", err)
-    res.redirect("/posts")
-  })
-}
+// function deletePost (req, res){
+//   console.log("delete fun :(");
+//   Post.findById(req.params.id)
+//   .then( post => {
+//     if (post.author.equals(req.user.profile._id)) {
+//       post.delete()
+//       .then(() => {
+//         res.redirect("/posts")
+//       })
+//     } else {
+//       throw new Error ("NOT AUTHORIZED")
+//     }
+//   })
+//   .catch(err => {
+//     console.log("❌ the DELETE error:", err)
+//     res.redirect("/posts")
+//   })
+// }
 
 function update (req, res){
-  console.log("update the fun");
+  console.log("✅ update the fun");
+  console.log(req.body.text);
   Post.findById(req.params.id)
   .then( post => {
     if (post.author.equals(req.user.profile._id)) {
-      post.updateOne(req.body, {new: true})
-      .then(() => {
-        res.redirect(`/posts/${req.params.id}`)
-      })
+      post.update(req.body, {new: true})
+      .then(() => { 
+        res.redirect(`/posts/${post._id}`)
+      }) 
     } else {
       throw new Error("NOT AUTHORIZED")
     }
@@ -114,15 +115,16 @@ function update (req, res){
     console.log("❌ the UPDATE error:", err)
     res.redirect("/posts")
   })
+  console.log(req.body.text);
 } 
 
 export {
   index,
   show,
   create,
-  deletePost as delete,
+  // deletePost as delete,
   update,
   newPost as new,
-  edit
-}
+  // edit
+} 
 
