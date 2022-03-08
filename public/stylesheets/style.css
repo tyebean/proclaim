@@ -23,7 +23,7 @@ nav {
   font-size: 1.6rem;
   display: flex;
   justify-content: center;
-}
+} 
 
 main {
   display: flex;
@@ -48,7 +48,6 @@ div.post {
   margin: 20px;
 }
 
-/* todo: align username with the pfp!!!!!!!! */
 .username {
   color: red;
   display: inline-block;
@@ -61,6 +60,33 @@ img.post-avatar {
   margin: 0;
   padding: 0;
   height: 50%;
+}
+
+.time {
+  display: inline-block;
+  padding-right: 5px;
+  color: grey;
+}
+
+
+.text-post, .edit-post{
+  color: red;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 30%;
+  border-radius: 2px;
+  border: 1px solid grey;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
+  text-decoration: none;
+  background-color: #ffffff00;
+  outline: none;
+  width: 95%;
+}
+
+button.back {
+  display: block;
+  margin: auto;
 }
 
 button.add-post {
@@ -84,34 +110,60 @@ button.add-post:hover {
   border-bottom: 2px solid #225e35;
 }
 
-.text-post, .edit-post{
-  color: red;
-  padding: 10px;
-  font-weight: bold;
-  font-size: 30%;
-  border-radius: 2px;
-  border: 1px solid grey;
-  border-top: 2px solid grey;
-  border-left: 2px solid grey;
-  text-decoration: none;
-  background-color: #ffffff00;
-  outline: none;
-}
-
-.btn-edit, .btn-delete {
+button.btn-edit, button.btn-delete {
   display: inline;
   border-radius: 2px;
   font-size: 20%;
   margin: 5px;
 }
 
+@media only screen and (min-width: 768px) {
+  body {
+    background-color: #dfdfdf;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    margin: 100px;
+  }
+  div.post {
+    border-radius: 5px;
+    border: 3px solid black;
+    border-right: 6px solid black;
+    border-bottom: 6px solid black;
+    padding: 10px;
+    height: 200px;
+    margin: 20px;
+  }
+
+.username {
+  color: red;
+  display: inline-block;
+  padding: 5px;
+  font-size: 30px;
+} 
+img.post-avatar {
+  margin: 0;
+  padding: 0;
+  height: 60%;
+}
 .time {
   display: inline-block;
-  padding-right: 5px;
+  padding-left: 20px;
   color: grey;
 }
 
-button.back {
-  display: block;
-  margin: auto;
+div.text-post, input.edit-post {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration-line: none;
+  border-radius: 2px;
+  border: 1px solid grey;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
+  padding: 10px;
+  
+  background-color: #ffffff00;
+  outline: none;
+  width: 95%;
 }
+}
+
