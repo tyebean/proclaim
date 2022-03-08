@@ -1,11 +1,12 @@
 import { Post } from "../models/post.js"
+import { Profile } from "../models/profile.js"
 import { Comment } from "../models/comment.js"
 
 function index(req, res){
-  console.log("index fun :)");
+  console.log("index function ✅");
   Post.find({})
   .then (posts => {
-    console.log('sanity check!');
+    console.log('rendering posts ✅');
     res.render('posts/index',{
       posts
     })
@@ -17,24 +18,8 @@ function index(req, res){
 } 
 
 function newPost (req, res) {
+  console.log("❓ we're tryna see /new up in here");
   res.render('posts/new')
-}
-
-// specific post 
-function show (req, res){
-  console.log("show me the post");
-  Post.findById(req.params.id)
-  // .populate('Profile')
-  .then ( post => {
-    console.log(post);
-    res.render('posts/show', {
-      post
-    })
-  })
-  .catch( err => {
-    console.log('❌  SHOW ERROR', err);
-    res.redirect('/posts')
-  })
 }
 
 // new post (redirect to /posts)
@@ -50,18 +35,86 @@ function create(req, res){
   })
 }
 
-function edit (req, res){
-  console.log('edit sanity check');
+// specific post 
+function show (req, res){
+  console.log("showing me the post ✅");
+  Post.findById(req.params.id)
+  // .populate('Profile')
+  .then ( post => {
+    console.log(post);
+    res.render('posts/show', {
+      post
+    })
+  })
+  .catch( err => {
+    console.log('❌  SHOW ERROR', err);
+    res.redirect('/posts')
+  })
+  // Profile.findById(req.params.id)
+  // .then ( profile => {
+  //   console.log("profile is", profile);
+  //   Profile.findById(req.user.profile._id)
+  //   .then(self => {
+  //     const isSelf = self._id.equals(profile._id)
+  //     res.render("profile/show",{
+  //       profile,
+  //       isSelf
+  //     })
+  //   })
+  // })
+}
 
+function edit (req, res){
+  console.log('✅ edit sanity check');
+  Post.findById(req.params.id)
+  .then(post =>{
+    res.render("posts/edit",{
+      post,
+    })
+  })
+  .catch(err=>{
+    console.log("❌ EDIT ERROR", err);
+    res.redirect("/posts")
+  })
 }
 
 function deletePost (req, res){
   console.log("delete fun :(");
+  Post.findById(req.params.id)
+  .then( post => {
+    if (post.author.equals(req.user.profile._id)) {
+      post.delete()
+      .then(() => {
+        res.redirect("/posts")
+      })
+    } else {
+      throw new Error ("NOT AUTHORIZED")
+    }
+  })
+  .catch(err => {
+    console.log("❌ the DELETE error:", err)
+    res.redirect("/posts")
+  })
 }
 
 function update (req, res){
   console.log("update the fun");
-}
+  Post.findById(req.params.id)
+  .then( post => {
+    if (post.author.equals(req.user.profile._id)) {
+      post.updateOne(req.body, {new: true})
+      .then(() => {
+        res.redirect(`/posts/${req.params.id}`)
+      })
+    } else {
+      throw new Error("NOT AUTHORIZED")
+    }
+  })
+  .catch(err => {
+    console.log("❌ the UPDATE error:", err)
+    res.redirect("/posts")
+  })
+} 
 
 export {
   index,

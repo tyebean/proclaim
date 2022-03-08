@@ -5,10 +5,10 @@ const router = Router()
 
 // GET - localhost:3000/posts (index.ejs)
 router.get('/', isLoggedIn, postsCtrl.index) 
-// GET - localhost:3000/posts/:id (show.ejs)
-router.get('/:id', isLoggedIn, postsCtrl.show)
 // GET - localhost:3000/posts/new (new.ejs)
 router.get("/new", isLoggedIn, postsCtrl.new) 
+// GET - localhost:3000/posts/:id (show.ejs)
+router.get('/:id', isLoggedIn, postsCtrl.show)
 // GET - edit post: localhost:3000/posts/:id/edit
 router.get('/:id/edit', isLoggedIn, postsCtrl.edit)
 
