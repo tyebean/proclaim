@@ -1,5 +1,4 @@
 import { Post } from "../models/post.js"
-import { Profile } from "../models/profile.js"
 import { Comment } from "../models/comment.js"
 
 function index(req, res){
@@ -35,12 +34,13 @@ function create(req, res){
 
 function show (req, res){
   Post.findById(req.params.id)
+  .populate('comments') 
+  .populate({path: 'comments', populate: {path: 'author'}})  
   .populate('author') 
   .then ( post => {
-    // console.log(post);
     res.render('posts/show', {
-      post
-    })
+      post,
+      })
   })
   .catch( err => {
     console.log('❌  SHOW ERROR', err);

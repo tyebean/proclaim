@@ -4,6 +4,11 @@
 <%- include('../partials/nav') %>
 
 <h1>Indiv Post</h1>
+<% if (post.author.equals(user?.profile._id)) { %> 
+<h1>Hey, <%= post.author.name %>! Here's your post: </h1>
+<% } %> 
+
+<a href="/posts"><button class="back"> Back</button></a>
 
 <div class="post">
   <img class="post-avatar"
@@ -28,5 +33,31 @@
       <% } %> 
 </div> 
 
-<a href="/posts"><button class="back"> Back</button></a>
+<h1>Comments</h1>
+<% post.comments.forEach (comment => { %>
+    <li>
+    <%= comment.text %> 
+    <%= comment.author.name %> 
+    
+    </li>
+<% }) %>
+
+
+<h1>Add a comment</h1> 
+
+<div class="post">
+  <img class="post-avatar"
+        src="<%= user.profile.avatar %>"
+        alt="<%= user.profile.name %> avatar"
+      />  
+      <div class="username"><%= post.author.name %></div>
+  <div class="time"><%= post.time %></div>
+  <div>
+    <form action="/posts/<%= post._id %>" method="POST"> 
+    <input class="comment-post" name="text" type="text" size="70px">
+    <button class="btn-comment" type="submit"> Add Comment </button> 
+  </form> 
+</div>
+</div>
+
 <%- include('../partials/footer') %> 
