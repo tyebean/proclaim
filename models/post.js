@@ -4,8 +4,6 @@ import { Comment } from './comment.js'
 const Schema = mongoose.Schema
 
 const postSchema = new Schema({
-  avatar: String,
-  username: String,
   author: {type: Schema.Types.ObjectId, ref: "Profile"},
   time: {type: Date, default: Date.now()},
   text: String,

@@ -7,21 +7,25 @@
 
 <div class="post">
   <img class="post-avatar"
-    src="<%= user.profile.avatar %>"
-    alt="<%= user.profile.name %> avatar"
-  /> 
-  <div class="username"><%= user.profile.name %></div>
+        src="<%= post.author.avatar %>"
+        alt="<%= post.author.name %> avatar"
+      />  
+      <div class="username"><%= post.author.name %></div>
   <div class="time"><%= post.time %></div>
   <% if (post.author.equals(user?.profile._id)) { %> 
     <div> 
       <form 
       action="/posts/<%= post._id %>?_method=PUT" method="POST"> 
         <input class="edit-post" name="text" type="text" size="70px" value="<%= post.text %>">
-        <button class="btn-edit" type="submit"> Edit </button> 
+        <button class="btn-edit" type="submit"> Save </button> 
       </form> 
-      <button class="btn-delete" type="submit"> Delete </button>
+      <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+        <button class="btn-delete" type="submit">Delete</button>
+      </form>
     </div>
-    <% } %>
+    <% } else { %>
+      <div class="text-post"><%= post.text %></div>
+      <% } %> 
 </div> 
 
 <a href="/posts"><button class="back"> Back</button></a>

@@ -3,28 +3,22 @@ import * as postsCtrl from "../controllers/posts.js"
 import { isLoggedIn } from '../middleware/middleware.js'
 const router = Router()
 
-// GET - localhost:3000/posts (index.ejs)
+// localhost:3000/posts
 router.get('/', isLoggedIn, postsCtrl.index) 
-// GET - localhost:3000/posts/new (new.ejs)
+//localhost:3000/posts/new
 router.get("/new", isLoggedIn, postsCtrl.new) 
-// GET - localhost:3000/posts/:id (show.ejs)
+//localhost:3000/posts/:id
 router.get('/:id', isLoggedIn, postsCtrl.show) 
 
 
-// POST - create new post: localhost:3000/posts (index (redirect))
+//localhost:3000/posts
 router.post('/', isLoggedIn, postsCtrl.create) 
 
+//localhost:3000/:id
+router.delete('/:id', isLoggedIn, postsCtrl.delete) 
 
-// DELETE - delete post: localhost:3000/:id
-// router.delete('/:id', isLoggedIn, postsCtrl.delete) 
-
-
-//PUT/PATCH - update post: localhost:3000/:id
-// * Note: Use PUT to update an entire resource.  Use PATCH to update part of a resource.
+//localhost:3000/:id
 router.put('/:id', isLoggedIn, postsCtrl.update)
-
-// PUT - localhost:3000/posts/:id (edit)
-// router.put('/:id', isLoggedIn, postsCtrl.edit) 
 
 export {
   router

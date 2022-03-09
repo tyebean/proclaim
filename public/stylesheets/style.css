@@ -46,6 +46,7 @@ div.post {
   padding: 10px;
   height: 100px;
   margin: 20px;
+  text-decoration-line: none;
 }
 
 .username {
@@ -78,9 +79,7 @@ img.post-avatar {
   border: 1px solid grey;
   border-top: 2px solid grey;
   border-left: 2px solid grey;
-  text-decoration: none;
   background-color: #ffffff00;
-  outline: none;
   width: 95%;
 }
 
@@ -131,6 +130,7 @@ button.btn-edit, button.btn-delete {
     padding: 10px;
     height: 200px;
     margin: 20px;
+    background-color: rgb(179, 179, 179);
   }
 
 .username {
@@ -160,7 +160,6 @@ div.text-post, input.edit-post {
   border-top: 2px solid grey;
   border-left: 2px solid grey;
   padding: 10px;
-  
   background-color: #ffffff00;
   outline: none;
   width: 95%;

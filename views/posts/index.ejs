@@ -13,14 +13,15 @@
 </head>
 <body> 
   <h1>💌 Live Feed 💌</h1>
+  
   <% posts.forEach(post => { %>
     <a href="/posts/<%= post._id %> ">
     <div class="post">
       <img class="post-avatar"
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      /> 
-      <div class="username"><%= user.profile.name %></div>
+        src="<%= post.author.avatar %>"
+        alt="<%= post.author.name %> avatar"
+      />  
+      <div class="username"><%= post.author.name %></div>
       <div class="time"><%= post.time %></div>
       <div class="text-post"><%= post.text %></div>
     </div>
