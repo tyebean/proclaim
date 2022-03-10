@@ -132,6 +132,19 @@ img.social {
   margin: 10px;
 }
 
+div.sign-in{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+img.love-letter {
+  height: 170px;
+  width: 150px;
+  margin: auto;
+}
+
 @media only screen and (min-width: 768px) {
   body {
     background-color: #dfdfdf;
