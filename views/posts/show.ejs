@@ -34,14 +34,21 @@
 </div> 
 
 <h1>Comments</h1>
-<% post.comments.forEach (comment => { %>
-    <li>
-    <%= comment.text %> 
-    <%= comment.author.name %> 
-    
-    </li>
-<% }) %>
 
+<% post.comments.forEach (comment => { %>
+  
+<div class="post">
+  <img class="post-avatar"
+        src="<%= comment.author.avatar %>"
+        alt="<%= comment.author.name %> avatar"
+      />  
+      <div class="username"><%= comment.author.name %></div>
+  <div class="time"><%= comment.time %></div>
+  <div class="time"><%= comment.time %></div>
+  <div class="text-post"><%= comment.text %></div>
+</div>
+  
+<% }) %>
 
 <h1>Add a comment</h1> 
 

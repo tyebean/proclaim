@@ -13,7 +13,6 @@
 </head>
 <body> 
   <h1>💌 Live Feed 💌</h1>
-
   <% posts.forEach(post => { %>
     <a href="/posts/<%= post._id %> ">
     <div class="post">
@@ -24,7 +23,6 @@
       <div class="username"><%= post.author.name %></div>
       <div class="time"><%= post.time %></div>
       <div class="text-post"><%= post.text %></div>
-      <!-- <a href="/posts/<%= post._id %> "> Comments </a> -->
     </div>
     </a>
   <% }) %>
