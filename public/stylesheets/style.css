@@ -116,6 +116,18 @@ button.btn-edit, button.btn-delete {
   margin: 5px;
 }
 
+footer {
+  background-color: rgb(230, 123, 123);
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+img.social {
+  height: 30px;
+  margin: 0 10px 0 10px;
+}
+
 @media only screen and (min-width: 768px) {
   body {
     background-color: #dfdfdf;
