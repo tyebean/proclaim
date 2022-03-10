@@ -12,17 +12,25 @@
         src="<%= post.author.avatar %>"
         alt="<%= post.author.name %> avatar"
       /> 
-      <div class="username"><%= post.author.name %></div>
-  <div class="time"><%= new Date(post.time).toLocaleDateString('en-US', {day: 'numeric', month:'numeric', year: 'numeric'}); %>  
-  </div> 
+  <div class="username"><%= post.author.name %></div>
+  <div class="time">
+  <%= new Date(post.time).toLocaleDateString('en-US', 
+  {day: 'numeric',
+  month:'numeric', 
+  year: 'numeric'}); %>  
+  </div>
+
   <% if (post.author.equals(user?.profile._id)) { %> 
     <div> 
       <form 
-      action="/posts/<%= post._id %>?_method=PUT" method="POST"> 
+      action="/posts/<%= post._id %>?_method=PUT" 
+      method="POST"> 
         <input class="edit-post" name="text" type="text" size="70px" value="<%= post.text %>">
         <button class="btn-edit" type="submit"> Save </button> 
       </form> 
-      <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+      <form 
+      action="/posts/<%= post._id %>?_method=DELETE" 
+      method="POST">
         <button class="btn-delete" type="submit">Delete</button>
       </form>
     </div>
@@ -40,10 +48,13 @@
     <div class="post">
       <img class="post-avatar"
             src="<%= comment.author.avatar %>"
-            alt="<%= comment.author.name %> avatar"
-          />  
-          <div class="username"><%= comment.author.name %></div>
-        <div class="time"><%= new Date(comment.time).toLocaleDateString('en-US', {day: 'numeric', month:'numeric', year: 'numeric'}); %>  
+            alt="<%= comment.author.name %> avatar"/>  
+      <div class="username"><%= comment.author.name %></div>
+      <div class="time">
+        <%= new Date(comment.time).toLocaleDateString('en-US', 
+        {day: 'numeric',
+        month:'numeric',
+        year: 'numeric'}); %>  
       </div>
       <div class="text-post"><%= comment.text %></div>
     </div>
@@ -56,10 +67,14 @@
   <img class="post-avatar"
         src="<%= user.profile.avatar %>"
         alt="<%= user.profile.name %> avatar"
-      />  
-      <div class="username"><%= user.profile.name %></div>
-      <div class="time"><%= new Date(post.time).toLocaleDateString('en-US', {day: 'numeric', month:'numeric', year: 'numeric'}); %>  
-      </div>
+      />
+  <div class="username"><%= user.profile.name %></div>
+  <div class="time">
+  <%= new Date(post.time).toLocaleDateString('en-US',
+  {day: 'numeric',
+  month:'numeric',
+  year: 'numeric'}); %>  
+  </div>
   <div>
     <form action="/posts/<%= post._id %>" method="POST"> 
     <input class="comment-post" name="text" type="text" size="70px">

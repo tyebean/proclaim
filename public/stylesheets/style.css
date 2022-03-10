@@ -50,7 +50,10 @@ h2 {
 
 p {
   text-align: center;
+}
 
+a {
+  text-decoration: none;
 }
 
 div.post {
@@ -61,7 +64,20 @@ div.post {
   padding: 20px;
   height: 100px;
   margin: 20px;
-  text-decoration-line: none;
+  overflow: hidden;
+  overflow: scroll;
+}
+
+div.text-post, input.edit-post, input.comment-post{
+  color: red;
+  padding: 10px;
+  font-size: 30%;
+  border-radius: 2px;
+  border: 1px solid grey;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
+  background-color: #ffffff00;
+  width: 95%;
 }
 
 .username {
@@ -70,6 +86,7 @@ div.post {
   padding: 2px;
   font-size: 50%;
   margin: 0;
+  font-weight: bold;
 } 
 
 img.post-avatar {
@@ -84,18 +101,6 @@ img.post-avatar {
   color: grey;
 }
 
-div.text-post, input.edit-post, input.comment-post{
-  color: red;
-  padding: 10px;
-  font-weight: bold;
-  font-size: 30%;
-  border-radius: 2px;
-  border: 1px solid grey;
-  border-top: 2px solid grey;
-  border-left: 2px solid grey;
-  background-color: #ffffff00;
-  width: 95%;
-}
 
 button.back {
   display: block;

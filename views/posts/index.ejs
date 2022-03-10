@@ -12,18 +12,24 @@
   <title>Proclaim: Live Feed</title>
 </head>
 <body> 
+
   <h1>💌 Live Feed 💌</h1>
-  <% posts.forEach(post => { %>
+
+  <% posts.forEach ( post => { %>
     <a href="/posts/<%= post._id %> ">
     <div class="post">
       <img class="post-avatar"
         src="<%= post.author.avatar %>"
-        alt="<%= post.author.name %> avatar"
-      />  
-      <div class="username"><%= post.author.name %></div>
-      <div class="time"><%= post.time %></div>
+        alt="<%= post.author.name %> avatar"/>  
+    <div class="username"><%= post.author.name %></div>
+    <div class="time">
+      <%= new Date(post.time).toLocaleDateString('en-US',
+      {day: 'numeric',
+      month:'numeric',
+      year: 'numeric'}); %>  
+      </div>
       <div class="text-post"><%= post.text %></div>
-    </div>
+      </div>
     </a>
   <% }) %>
   <a href="/posts/new"> <button class="add-post"> + </button> </a>
