@@ -1,5 +1,7 @@
 # Proclaim
 
+![](/public/images/readme/home.png)
+
 #### [The site](https://proclaim-tw.herokuapp.com/)
 
 Proclaim is a web application that gives its users a platform to take part in a supportive community that shares positive and motivating words, stories, and experiences. Users are able to securely login with google, navigate to a live feed, post, and comment on posts. 
