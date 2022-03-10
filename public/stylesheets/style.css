@@ -15,8 +15,7 @@ html {
 body {
   background-color: #dfdfdf;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  margin: auto;
-  margin-bottom: 100px;
+  height: 35px;
 }
 
 nav {
@@ -167,10 +166,26 @@ img.love-letter {
 }
 
 @media only screen and (min-width: 768px) {
+
+  .outer-container {
+    margin: 250px;
+    margin-top: 0;
+    padding-bottom: 100px;
+  }
+
   body {
     background-color: #dfdfdf;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    margin: auto;
+    margin-bottom: 100px;
+    height: 35px;
   }
+
+  h1 {
+    margin: 50px;
+    height: 35px;  
+  }
+
   div.post {
     border-radius: 5px;
     border: 3px solid black;
@@ -203,17 +218,18 @@ img.love-letter {
   display: inline-block;
   padding: 5px;
   font-size: 30px;
-} 
+  } 
+
 img.post-avatar {
   margin: 0;
   padding: 0;
   height: 60%;
-}
+  }
+
 .time {
   display: inline-block;
   padding-left: 20px;
   color: grey;
-}
-
+  }
 }
 
