@@ -3,10 +3,7 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1>Indiv Post</h1>
-<% if (post.author.equals(user?.profile._id)) { %> 
-<h1>Hey, <%= post.author.name %>! Here's your post: </h1>
-<% } %> 
+<h1>Post Details</h1>
 
 <a href="/posts"><button class="back"> Back</button></a>
 
@@ -14,9 +11,10 @@
   <img class="post-avatar"
         src="<%= post.author.avatar %>"
         alt="<%= post.author.name %> avatar"
-      />  
+      /> 
       <div class="username"><%= post.author.name %></div>
-  <div class="time"><%= post.time %></div>
+  <div class="time"><%= new Date(post.time).toLocaleDateString('en-US', {day: 'numeric', month:'numeric', year: 'numeric'}); %>  
+  </div> 
   <% if (post.author.equals(user?.profile._id)) { %> 
     <div> 
       <form 
@@ -33,7 +31,7 @@
       <% } %> 
 </div> 
 
-<h1>Comments</h1>
+<h2>Comments</h2>
 
 <% post.comments.forEach (comment => { %>
   
@@ -43,14 +41,14 @@
         alt="<%= comment.author.name %> avatar"
       />  
       <div class="username"><%= comment.author.name %></div>
-  <div class="time"><%= comment.time %></div>
-  <div class="time"><%= comment.time %></div>
+    <div class="time"><%= new Date(comment.time).toLocaleDateString('en-US', {day: 'numeric', month:'numeric', year: 'numeric'}); %>  
+  </div>
   <div class="text-post"><%= comment.text %></div>
 </div>
   
 <% }) %>
 
-<h1>Add a comment</h1> 
+<h2>Add a comment</h2> 
 
 <div class="post">
   <img class="post-avatar"
@@ -58,7 +56,8 @@
         alt="<%= user.profile.name %> avatar"
       />  
       <div class="username"><%= post.author.name %></div>
-  <div class="time"><%= post.time %></div>
+      <div class="time"><%= new Date(post.time).toLocaleDateString('en-US', {day: 'numeric', month:'numeric', year: 'numeric'}); %>  
+      </div>
   <div>
     <form action="/posts/<%= post._id %>" method="POST"> 
     <input class="comment-post" name="text" type="text" size="70px">
