@@ -62,17 +62,16 @@ div.post {
   border-right: 5px solid black;
   border-bottom: 4px solid black;
   padding: 20px;
-  height: 100px;
   margin: 20px;
-  overflow: hidden;
-  overflow: scroll;
 }
 
-div.text-post, input.edit-post, input.comment-post{
+div.post-text, input.edit-post, input.comment-post{
   color: red;
   padding: 10px;
   font-size: 30%;
   border-radius: 2px;
+  overflow: scroll;
+  height: 100px;
   border: 1px solid grey;
   border-top: 2px solid grey;
   border-left: 2px solid grey;
@@ -101,6 +100,9 @@ img.post-avatar {
   color: grey;
 }
 
+.inline-block {
+  display: inline-block;
+}
 
 button.back {
   display: block;
@@ -175,9 +177,25 @@ img.love-letter {
     border-right: 6px solid black;
     border-bottom: 6px solid black;
     padding: 10px;
-    height: 200px;
     margin: 20px;
     background-color: rgb(179, 179, 179);
+  }
+
+  div.post-text, input.edit-post input.comment-post{
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration-line: none;
+    border-radius: 2px;
+    border: 1px solid grey;
+    border-top: 2px solid grey;
+    border-left: 2px solid grey;
+    padding: 10px;
+    background-color: #ffffff00;
+    outline: none;
+    width: 95%;
+    overflow: scroll;
+    height: 200px;
   }
 
 .username {
@@ -197,19 +215,5 @@ img.post-avatar {
   color: grey;
 }
 
-div.text-post, input.edit-post input.comment-post{
-  color: red;
-  font-weight: bold;
-  font-size: 20px;
-  text-decoration-line: none;
-  border-radius: 2px;
-  border: 1px solid grey;
-  border-top: 2px solid grey;
-  border-left: 2px solid grey;
-  padding: 10px;
-  background-color: #ffffff00;
-  outline: none;
-  width: 95%;
-}
 }
 

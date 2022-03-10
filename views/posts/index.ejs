@@ -12,7 +12,7 @@
   <title>Proclaim: Live Feed</title>
 </head>
 <body> 
-
+<div id="outer-container">
   <h1>💌 Live Feed 💌</h1>
 
   <% posts.forEach ( post => { %>
@@ -28,11 +28,12 @@
       month:'numeric',
       year: 'numeric'}); %>  
       </div>
-      <div class="text-post"><%= post.text %></div>
+      <div class="post-text"><%= post.text %></div>
       </div>
     </a>
   <% }) %>
   <a href="/posts/new"> <button class="add-post"> + </button> </a>
+</div>
 </body>
 </html> 
 <%- include('../partials/footer') %> 
