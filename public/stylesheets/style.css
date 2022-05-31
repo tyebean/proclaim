@@ -7,11 +7,6 @@ html {
   box-sizing: inherit;
 }
 
-/* resets font size to be 62.5% of the user preference - in most browser configurations this will be 10px */
-:root {
-  font-size: 62.5%;
-}
-
 body {
   background-color: #dfdfdf;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
@@ -27,9 +22,9 @@ main {
 
 h1 {
   font-size: 3.6rem;
-  font-family: 'Courgette', cursive, 'Times New Roman', Times, serif;
+  font-family: 'Pacifico', cursive;
   text-align: center;
-  letter-spacing: 5px;
+  letter-spacing: 8px;
 }
 
 h2 {
@@ -131,7 +126,7 @@ button.btn-edit, button.btn-delete {
 }
 
 footer {
-  background-color: rgb(230, 123, 123);
+  background-color: #eacae3;
   display: flex;
   width: 100%;
   flex-direction: row;
