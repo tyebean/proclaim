@@ -19,7 +19,6 @@ Proclaim is a web application that gives its users a platform to take part in a 
 
 ### **Icebox **
 
-
 - Add mmost recent posts at the top
 - Add 'likes' or 'reactions' to a post
 - Add karma depending on how other users react to your post, earning you either good or bad 'street cred'

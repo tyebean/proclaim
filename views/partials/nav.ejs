@@ -5,9 +5,21 @@
 <body>
 <nav>
   <% if (user) { %>
-    <a href="/auth/logout">
-      <button type="submit">Logout</button>
-    </a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img src="/main-l-letter.png" alt="image of a love letter"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="/posts">Feed</a>
+            <a class="nav-link" href="#">Make a Proclaim</a>
+            <a class="nav-link" href="/auth/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
   <% } else { %>
     <a href="/auth/google" class="siwg-link">
       <button type="submit" class="siwg">

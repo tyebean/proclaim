@@ -17,7 +17,6 @@ const router = Router()
 //view comments on show.ejs 
 //make a comment on show.ejs
 
-
 //GET - read all comments for a blog /blogs/:id/comments
 // GET - create new comment :S
 
