@@ -8,30 +8,29 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/public/stylesheets/style.css">
   <title>Proclaim: Feed</title>
 </head>
 <body> 
-  <h1>💌 Live Feed 💌</h1>
   <div class="outer-container">
   <% posts.forEach ( post => { %>
-    <a href="/posts/<%= post._id %> ">
     <div class="post">
-      <img class="post-avatar"
-        src="<%= post.author.avatar %>"
-        alt="<%= post.author.name %> avatar"/>  
-    <div class="username"><%= post.author.name %></div>
-    <div class="time">
-      <%= new Date(post.time).toLocaleDateString('en-US',
-      {day: 'numeric',
-      month:'numeric',
-      year: 'numeric'}); %>  
+      <div class="flexbox username-and-avatar">
+        <img class="avatar"
+          src="<%= post.author.avatar %>"
+          alt="<%= post.author.name %> avatar"/>  
+      <div class="username"><%= post.author.name %></div>
+      <div class="time">
+        <%= new Date(post.time).toLocaleDateString('en-US',
+        {day: 'numeric',
+        month:'numeric',
+        year: 'numeric'}); %>  
+        </div>
       </div>
-      <div class="post-text"><%= post.text %></div>
+      <div class="post-content"><%= post.text %></div>
+      <a class="link-to-comments" href="/posts/<%= post._id %>"><p>Comments</p></a>
       </div>
-    </a>
   <% }) %>
-  <a href="/posts/new"> <button class="add-post"> + </button> </a>
+  <!-- <a href="/posts/new"> <button class="add-post"> + </button> </a> -->
 </div>
 </body>
 </html> 
