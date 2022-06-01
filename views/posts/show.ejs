@@ -1,86 +1,83 @@
 <%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
+  <%- include('../partials/nav') %>
 
-<h1>Post Details</h1>
+    <!-- todo: this can honestly gooooo. it can leave. -->
+    <!-- <h1>Post Details</h1> -->
 
-<a href="/posts"><button class="back"> Back</button></a>
+    <!-- todo: this looks ugly rn but we  reuse the concept and put it somewhere else -->
+    <!-- <a href="/posts"><button class="back"> Back</button></a> -->
 
-<div class="outer-container">
-  <div class="post">
-    <img class="post-avatar"
-          src="<%= post.author.avatar %>"
-          alt="<%= post.author.name %> avatar"
-        /> 
-    <div class="username"><%= post.author.name %></div>
-    <div class="time">
-      
-      <%= new Date(post.time).toLocaleDateString('en-US', 
-    {day: 'numeric',
-    month:'numeric', 
-    year: 'numeric'}); %>  
-    </div>
-    
-    <% if (post.author.equals(user?.profile._id)) { %> 
-      <form class="inline-block"
-      action="/posts/<%= post._id %>?_method=DELETE" 
-      method="POST">
-        <button class="btn-delete" type="submit">Delete Post</button>
-      </form>
-      <div> 
-        <form 
-        action="/posts/<%= post._id %>?_method=PUT" 
-        method="POST"> 
-        <input class="edit-post" name="text" type="text" size="70px" value="<%= post.text %>">
-        <button class="btn-edit" type="submit"> Save </button> 
-        </form> 
-      </div>
-      <% } else { %>
-        <div class="post-text"><%= post.text %></div>
-        <% } %> 
-  </div> 
-  
-  <h2>Comments</h2>
-  
-  <% if (post.comments.length === 0 ) { %>
-    <p>No comments yet. Say something nice!</p>
-    <% } %>
-    <% post.comments.forEach (comment => { %>
+    <div class="outer-container">
       <div class="post">
-        <img class="post-avatar"
-              src="<%= comment.author.avatar %>"
-              alt="<%= comment.author.name %> avatar"/>  
-        <div class="username"><%= comment.author.name %></div>
-        <div class="time">
-          <%= new Date(comment.time).toLocaleDateString('en-US', 
-          {day: 'numeric',
-          month:'numeric',
-          year: 'numeric'}); %>  
+        <img class="post-avatar" src="<%= post.author.avatar %>" alt="<%= post.author.name %> avatar" />
+        <div class="username">
+          <%= post.author.name %>
         </div>
-        <div class="post-text"><%= comment.text %></div>
-      </div>
-      <% }) %>
-  
-  <h2>Add a comment</h2> 
-  
-  <div class="post">
-    <img class="post-avatar"
-          src="<%= user.profile.avatar %>"
-          alt="<%= user.profile.name %> avatar"
-        />
-    <div class="username"><%= user.profile.name %></div>
-    <div class="time">
-    <%= new Date(post.time).toLocaleDateString('en-US',
-    {day: 'numeric',
-    month:'numeric',
-    year: 'numeric'}); %>  
-    </div>
-    <div>
-      <form action="/posts/<%= post._id %>" method="POST"> 
-      <input class="comment-post" name="text" type="text" size="70px">
-      <button class="btn-comment" type="submit"> Add Comment </button> 
-    </form> 
-  </div>
-  </div>
-</div>
+        <div class="time">
 
-<%- include('../partials/footer') %> 
+          <%= new Date(post.time).toLocaleDateString('en-US', {day: 'numeric' , month:'numeric', year: 'numeric' }); %>
+        </div>
+
+        <% if (post.author.equals(user?.profile._id)) { %>
+          <form class="inline-block" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+            <button class="btn-delete" type="submit">Delete Post</button>
+          </form>
+          <div>
+            <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
+              <input class="edit-post" name="text" type="text" size="70px" value="<%= post.text %>">
+              <button class="btn-edit" type="submit"> Save </button>
+            </form>
+          </div>
+          <% } else { %>
+            <div class="post-text">
+              <%= post.text %>
+            </div>
+            <% } %>
+      </div>
+
+      <!-- using this for the first time. looks pretty good imo!
+      note: The <hr> tag in HTML stands for horizontal rule and
+      is used to insert a horizontal rule or 
+      a thematic break in an HTML page to divide -->
+      <hr class="horiz-rule">
+
+      <% if (post.comments.length===0 ) { %>
+        <p>No comments yet. Say something nice!</p>
+        <% } %>
+          <% post.comments.forEach (comment=> { %>
+            <div class="post">
+              <img class="post-avatar" src="<%= comment.author.avatar %>" alt="<%= comment.author.name %> avatar" />
+              <div class="username">
+                <%= comment.author.name %>
+              </div>
+              <div class="time">
+                <%= new Date(comment.time).toLocaleDateString('en-US', {day: 'numeric' , month:'numeric',
+                  year: 'numeric' }); %>
+              </div>
+              <div class="post-text">
+                <%= comment.text %>
+              </div>
+            </div>
+            <% }) %>
+
+            <hr class="horiz-rule">
+
+              <div class="post">
+                <img class="post-avatar" src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar" />
+                <div class="username">
+                  <%= user.profile.name %>
+                </div>
+                <div class="time">
+                  <%= new Date(post.time).toLocaleDateString('en-US', {day: 'numeric' , month:'numeric', year: 'numeric'
+                    }); %>
+                </div>
+                <div>
+                  <form action="/posts/<%= post._id %>" method="POST">
+                    <input class="comment-post" name="text" type="text" size="70px">
+                    <button class="btn-comment" type="submit"> Add Comment </button>
+                  </form>
+                </div>
+              </div>
+    </div>
+
+    <%- include('../partials/footer') %>
