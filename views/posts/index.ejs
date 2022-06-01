@@ -1,37 +1,41 @@
 <!-- * LIVE FEED PAGE  -->
 <%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
+  <%- include('../partials/nav') %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proclaim: Feed</title>
-</head>
-<body> 
-  <div class="outer-container">
-  <% posts.forEach ( post => { %>
-    <div class="post">
-      <div class="flexbox username-and-avatar">
-        <img class="avatar"
-          src="<%= post.author.avatar %>"
-          alt="<%= post.author.name %> avatar"/>  
-      <div class="username"><%= post.author.name %></div>
-      <div class="time">
-        <%= new Date(post.time).toLocaleDateString('en-US',
-        {day: 'numeric',
-        month:'numeric',
-        year: 'numeric'}); %>  
-        </div>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Proclaim: Feed</title>
+    </head>
+
+    <body>
+      <div class="outer-container">
+        <% posts.forEach ( post=> { %>
+          <div class="flexbox post">
+            <div class="flexbox username-and-avatar">
+              <img class="avatar" src="<%= post.author.avatar %>" alt="<%= post.author.name %> avatar" />
+              <div class="username">
+                <%= post.author.name %>
+              </div>
+              <div class="time">
+                PROCLAIMED ON
+                <%= new Date(post.time).toLocaleDateString('en-US', {day: 'numeric' , month:'numeric', year: 'numeric'
+                  }); %>
+              </div>
+            </div>
+            <div class="post-content">
+              <%= post.text %>
+            </div>
+            <a class="link-to-comments" href="/posts/<%= post._id %>">
+              <p class="comments-p">Comments</p>
+            </a>
+          </div>
+          <% }) %>
       </div>
-      <div class="post-content"><%= post.text %></div>
-      <a class="link-to-comments" href="/posts/<%= post._id %>"><p>Comments</p></a>
-      </div>
-  <% }) %>
-  <!-- <a href="/posts/new"> <button class="add-post"> + </button> </a> -->
-</div>
-</body>
-</html> 
-<%- include('../partials/footer') %> 
+    </body>
+    </html>
+    <%- include('../partials/footer') %>

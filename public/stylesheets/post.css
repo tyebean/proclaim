@@ -1,3 +1,4 @@
+/* flexbox */
 .post{
   background: white;
   border-radius: 10px;
@@ -7,11 +8,10 @@
   box-shadow: 12px 12px 2px 1px #651ea817;
   min-width: 500px;
   max-width: 1000px;
-  display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 /* flexbox */
@@ -19,34 +19,38 @@
   display: flexbox;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .avatar{
-  margin: 20px 0 0 20px;
   border-radius: 50px;
 }
 
 .username{ 
   color: black;
-  text-decoration: none;
   display: inline-block;
   margin-left: 15px;
 }
 
 .time{
   display: inline-block;
-  right: 0px;
   color: grey;
+  text-align: right;
 }
 
 .post-content{
   margin: 20px 0 0 20px;
-  margin-bottom: 5%;
 }
 
 .link-to-comments{
-  color: red;
+  color: #ff0000;
   text-decoration: underline;
   text-align: right;
+}
+
+.comments-p{
+  margin: auto;
+  margin-right: 25px;
 }
