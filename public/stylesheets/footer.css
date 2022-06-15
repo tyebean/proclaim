@@ -1,16 +1,18 @@
 .footer{
-  background-color:red;
+  background-color:#eacae2;
   position:fixed;left:0;
   bottom:0;
   width:100%;
   text-align:center;
+  margin-top: 50px;
+  padding: 12px;
 }
 
-.footer-div{
-  background-color:red;
-  position:fixed;left:0;
-  bottom:0;
-  width:100%;
-  text-align:center;
+.social{
+  max-height:35px;
+  margin: 10px;
 }
 
+.social-link{
+  text-decoration-line: none;
+}
