@@ -16,10 +16,12 @@
           <form class="inline-block" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
             <button class="btn-delete" type="submit">Delete Post</button>
           </form>
+
           <div>
-            <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
+            <form id="edit" action="/posts/<%= post._id %>?_method=PUT" method="POST">
               <!-- ! make this a textarea -->
-              <input class="edit-post" name="text" type="text" minlength=1 value="<%= post.text %>">
+              <!-- !!! WE MADE IT A TEXTAREA. LET'S GOOOOOO. -->
+              <textarea form="edit" class="edit-post" name="text" type="text"><%= post.text %></textarea>
               <button class="btn-edit" type="submit">Update</button>
             </form>
           </div>
@@ -55,7 +57,7 @@
             </div>
             <% }) %>
 
-            <hr class="horizontal-rule">
+              <hr class="horizontal-rule">
 
 
               <div class="post">
