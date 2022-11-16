@@ -1,10 +1,21 @@
-.footer{
+/* .blur{
+  backdrop-filter: blur(.4rem);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 15%;
+  pointer-events: none;
+} */
+
+.footer {
   background-color:#eacae2;
-  position:fixed;left:0;
+  position:fixed;
+  left:0;
+  right: 0;
   bottom:0;
   width:100%;
   text-align:center;
-  /* margin-top: 50px; */
   padding: 12px;
 }
 
