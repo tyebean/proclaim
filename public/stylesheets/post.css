@@ -1,9 +1,11 @@
 /* flexbox */
+/* Understanding rem for the first time lol: https://www.sitepoint.com/understanding-and-using-rem-units-in-css/ */
+
 .post{
   background: white;
-  border-radius: 10px;
+  border-radius: .5rem;
   padding: 10px;
-  display: flexbox;
+  /* display: flexbox;
   flex-direction: row;
   box-shadow: 12px 12px 2px 1px #651ea817;
   min-width: 500px;
@@ -11,8 +13,21 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; */
 }
+
+/* @media only screen and (min-width: 768px) {
+  body{
+    min-width: 700px;
+    min-height: 450px;
+  }
+} */
+
+  .outer-container{
+    margin: 8.5%;
+    margin-top: 5%;
+    padding-bottom: 10%;
+  } 
 
 /* flexbox */
 .username-and-avatar{
@@ -45,9 +60,13 @@
 }
 
 .link-to-comments{
-  color: #ff0000;
+  color: #dd4a79;
   text-decoration: underline;
   text-align: right;
+}
+
+.link-to-comments:hover {
+  color: #2fc934;
 }
 
 .comments-p{
