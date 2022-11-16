@@ -8,21 +8,17 @@
           <%= post.author.name %>
         </div>
         <div class="time">
-
           <%= new Date(post.time).toLocaleDateString('en-US', {day: 'numeric' , month:'numeric', year: 'numeric' }); %>
         </div>
-
         <% if (post.author.equals(user?.profile._id)) { %>
-          <form class="inline-block" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-            <button class="btn-delete" type="submit">Delete Post</button>
-          </form>
 
           <div>
             <form id="edit" action="/posts/<%= post._id %>?_method=PUT" method="POST">
-              <!-- ! make this a textarea -->
-              <!-- !!! WE MADE IT A TEXTAREA. LET'S GOOOOOO. -->
               <textarea form="edit" class="edit-post" name="text" type="text"><%= post.text %></textarea>
               <button class="btn-edit" type="submit">Update</button>
+            </form>
+            <form class="inline-block" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+              <button class="btn-delete" type="submit">Delete Post</button>
             </form>
           </div>
           <% } else { %>
@@ -32,10 +28,6 @@
             <% } %>
       </div>
 
-      <!-- using this for the first time. looks pretty good imo!
-      note: The <hr> tag in HTML stands for horizontal rule and
-      is used to insert a horizontal rule or 
-      a thematic break in an HTML page to divide -->
       <hr class="horizontal-rule">
 
       <% if (post.comments.length===0 ) { %>
@@ -59,7 +51,6 @@
 
               <hr class="horizontal-rule">
 
-
               <div class="post">
                 <img class="post-avatar" src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar" />
                 <div class="username">
@@ -70,10 +61,10 @@
                     }); %>
                 </div>
                 <div>
-                  <form action="/posts/<%= post._id %>" method="POST">
+                  <form id='make-comment' action="/posts/<%= post._id %>" method="POST">
                     <!-- ! tell me WHY 9 months later i am just now figuring out that this would have been better with a TEXTAREA !!!?? -->
-                    <input class="comment-post" name="text" type="text" size="70px">
-                    <button class="btn-comment" type="submit"> Add Comment </button>
+                    <textarea form='make-comment' class="comment-post" name="text" type="text"> </textarea>
+                    <button class="btn-comment" type="submit">Add Comment</button>
                   </form>
                 </div>
               </div>
