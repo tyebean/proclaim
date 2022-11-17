@@ -1,28 +1,38 @@
 <!-- * NEW POST PAGE -->
 <%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
+  <%- include('../partials/nav') %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/public/stylesheets/style.css">
-  <title>Proclaim: New Post</title>
-</head>
-<body>
-  <h1>NEW POST</h1>
-  <div class="post">
-    <form action="/posts" method="post">
-      <label>
-        Post Content
-        <input type="text" name="text" id="text">
-        <button type="submit">Proclaim!</button>
-      </label>
-    </form>
-  </div>
-</body>
-</html> 
+    <!DOCTYPE html>
+    <html lang="en">
 
-<%- include('../partials/footer') %>
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Proclaim: New Post</title>
+    </head>
+
+    <body>
+      <div class="post">
+        <div class="post-header">
+          <img class="post-avatar" src="<%= user.profile.avatar %>" alt="<%= user.profile.name %> avatar" />
+          <div class="username">
+            <%= user.profile.name %>
+          </div>
+          <div class="time">
+            <%= new Date().toLocaleDateString('en-US', {day: 'numeric' , month:'numeric', year: 'numeric' }); %>
+          </div>
+        </div>
+        <form action="/posts" method="post">
+          <label>
+            Post Content
+            <input type="text" name="text" id="text">
+            <button type="submit">Proclaim!</button>
+          </label>
+        </form>
+      </div>
+    </body>
+
+    </html>
+
+    <%- include('../partials/footer') %>
