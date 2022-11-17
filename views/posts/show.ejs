@@ -13,12 +13,12 @@
         <% if (post.author.equals(user?.profile._id)) { %>
 
           <div>
-            <form id="edit" action="/posts/<%= post._id %>?_method=PUT" method="POST">
+            <form class="del-n-update" id="edit" action="/posts/<%= post._id %>?_method=PUT" method="POST">
               <textarea form="edit" class="edit-post" name="text" type="text"><%= post.text %></textarea>
-              <button class="btn-edit" type="submit">Update</button>
-            </form>
-            <form class="inline-block" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-              <button class="btn-delete" type="submit">Delete Post</button>
+              <form id="delete-button" class="del-n-update" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                <button type="submit"> ❌ Delete Post</button>
+              </form>
+              <button class="update-button" type="submit"> 🌷 Update</button>
             </form>
           </div>
           <% } else { %>
