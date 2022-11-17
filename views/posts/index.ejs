@@ -17,7 +17,8 @@
         <% posts.forEach ( post=> { %>
           <div class="flexbox post">
             <div class="flexbox username-and-avatar">
-              <img class="avatar" src="<%= post.author.avatar %>" alt="<%= post.author.name %> avatar" />
+              <!-- ! there was a change here for avatars -->
+              <img class="avatar" src="<%= post.author.avatar ? post.author.avatar : console.log("randimage"); %>" alt="<%= post.author.name %> avatar" />
               <div class="username">
                 <%= post.author.name %>
               </div>
