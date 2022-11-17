@@ -1,0 +1,29 @@
+<% if (!user) { %>
+  <link rel="stylesheet" href="/public/stylesheets/siwg.css">
+  <% } %>
+    </head>
+
+    <body>
+      <nav>
+        <% if (user) { %>
+          <nav class="navbar bg-danger p-2" style="--bs-bg-opacity: .5">
+            <!-- <div class="container-fluid"> -->
+            <a href="/posts">
+              <img src="/main-l-letter.png" alt="image of a love letter" width="30" height="30">
+            </a>
+            <!-- <div class="navbar-nav"> -->
+            <a class="nav-link" href="/posts">Feed</a>
+            <a class="nav-link" href="/posts/new">Make a Proclaim</a>
+            <a class="nav-link" href="/auth/logout">Logout</a>
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
+          </nav>
+          <% } else { %>
+            <a href="/auth/google" class="siwg-link">
+              <button type="submit" class="siwg">
+                <img id="siwg-image" alt="Sign in with Google" />
+              </button>
+            </a>
+            <% } %>
+      </nav>
