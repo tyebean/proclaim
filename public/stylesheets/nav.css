@@ -1,4 +1,9 @@
 .nav {
-  background-color: #b48484;
-  border: 2px solid black;
+  background-color: #f1fca7;
+  padding: .5rem;
+}
+
+.nav-link {
+  color: #26440f;
+  font-weight: bold;
 }
