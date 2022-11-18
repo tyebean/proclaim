@@ -4,14 +4,12 @@
 .post{
   background: white;
   border-radius: .5rem;
-  padding: 1.0rem;
+  padding: 2.0rem;
   box-shadow: 1.2rem 1.2rem .2rem .01rem #651ea817;
-  margin: 1.0rem;
+  margin: 2.0rem;
   font-size: .9rem;
-}
-
-.post-header{
-  
+  max-height: 30rem;
+  overflow: auto;
 }
 
 .edit-post{
@@ -19,10 +17,10 @@
 }
 
 .outer-container{
-    margin: 8.5%;
-    margin-top: 5%;
-    padding-bottom: 10%;
-  } 
+  margin: 8.5%;
+  margin-top: 5%;
+  padding-bottom: 10%;
+} 
 
 /* flexbox */
 /* ! maybe fix this to not.... be a flexbox <3 */
