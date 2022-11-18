@@ -5,9 +5,10 @@ npm start
     done! add profilepic + username to new post box
 
 add scroll to longer posts
-fix username/profile responsiveness
+fix username/profile responsiveness css
 add texterea to 'new post' box
 have posts show in chrono order
+add avatars to all images that haven't loaded
 
 put this project forever to REST. redeploy and idk... advertise it to your mom
 by 11/20/22
