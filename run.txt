@@ -12,3 +12,7 @@ add avatars to all images that haven't loaded
 
 put this project forever to REST. redeploy and idk... advertise it to your mom
 by 11/20/22
+
+npm start (to see in localhost3000)
+command + c to stop running
+

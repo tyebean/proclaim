@@ -11,7 +11,6 @@ Proclaim is a web application that gives its users a platform to take part in a 
 
 ### **Technology Used** 
 ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 ![](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)
 ![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
@@ -19,10 +18,15 @@ Proclaim is a web application that gives its users a platform to take part in a 
 
 ### **Icebox **
 
-- Add mmost recent posts at the top
+- add 'Log in with Discord'
+- Proclaim Feed to display posts in chronological order
 - Add 'likes' or 'reactions' to a post
-- Add karma depending on how other users react to your post, earning you either good or bad 'street cred'
+  
 - Add user profile page
+  - allow users to:
+    -  link a photo as a profile picture
+    -  choose from some default images
+  
 - Add achievements for completing basic activities within the app
 
 
